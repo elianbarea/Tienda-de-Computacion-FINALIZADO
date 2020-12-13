@@ -100,12 +100,14 @@ bool Proveedor::altaProveedor()
     {
         if(a.grabarProveedor()==true){
             cout <<"PROVEEDOR AGREGADO"<<endl;
+            return true;
         }
     }
 
     else
     {
         cout<<"NO SE PUDO AGREGAR PROVEEDOR"<<endl;
+        return false;
     }
 }
 bool Proveedor::leerDiscoProveedor(int posicion)

@@ -2,21 +2,24 @@
 #define COMPRA_H_INCLUDED
 #include "colormenues.h"
 
-bool Compra::ValidacionCodproducto(const char *codigo){
+int Compra::ValidacionCodproducto(const char *codigo){
 FILE *P=fopen (PRODUCTOS_CHAR,"rb");
 if(P==NULL)
     {
-        return false;
+        return 1;
         exit(1);
     }
 Producto p;
 
+
 if(p.validarproducto(codigo)==0){
 
 fclose(P);
+
     return 0;
 }
 fclose(P);
+
 return 1;
 }
 
@@ -35,7 +38,8 @@ while (p.leerdedisco(pos))
         if (strcmp(p.getCodigoProducto(),codigo)==0)
         {
 
-            p.setStock(stock);
+
+            p.setStock(stock+p.getStock());
             p.modificar(pos);
 
             fclose(P);
@@ -118,7 +122,7 @@ bool Compra::CargarCompra()
         cin>>sino;
         if(sino=='s' || sino=='S'){
 
-         p.altaproducto();
+         p.altaproducto(codProducto);
 
         }
         else{ return false;}
@@ -126,7 +130,7 @@ bool Compra::CargarCompra()
         cout<<"Listo!"<<endl;
         cout<<"carga los datos de la compra:"<<endl;
     }
-    ///----------------------------------validacion de codigo
+    ///----------------------------------///
 
     setcodProductoCompra(codProducto);
     cout<<"NUMERO DE PROVEEDOR: ";
@@ -136,7 +140,7 @@ bool Compra::CargarCompra()
     cin>>cantIngresada;
     ///-----------------------------------cantidad x precio
     float precio=buscarprecio(codProducto);
-    ///-----------------------------------cantidad x precio
+    ///-----------------------------------///
 
     ///----------------------------------V de numeros negativos o 0
     setcantIngresadaCompra(cantIngresada);
@@ -148,11 +152,11 @@ bool Compra::CargarCompra()
         cin>>cantIngresada;
         setcantIngresadaCompra(cantIngresada);
     }
-    ///----------------------------------V de numeros negativos o 0
+    ///----------------------------------////
     ///----------------------------------aumento de stock de productos
     stockup(codProducto,cantIngresada);
 
-    ///----------------------------------aumento de stock de productos
+    ///----------------------------------////
 
     cout<<"FECHA DE COMPRA"<<endl;
     while (fechaDeCompra.cargarFecha()==0)

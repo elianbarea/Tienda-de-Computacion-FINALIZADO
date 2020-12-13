@@ -157,13 +157,6 @@ void MENUCOLORCLIENTE() ///muestra el punto en la pantalla en la posición que se
     cout<<"-------------------------------------------"<<endl;
 }
 
-
-
-void MENUCOLORCONFIGURACION() ///muestra el punto en la pantalla en la posición que se eligió previamente
-{
-
-}
-
 void MENUCOLOREMPLEADO() ///muestra el punto en la pantalla en la posición que se eligió previamente
 {
     textcolor(cNEGRO,cVERDE);
@@ -218,12 +211,8 @@ void MENUCOLORPRODUCTO() ///muestra el punto en la pantalla en la posición que s
     gotoxy(35,14);
     cout<<"                                           |"<<endl;
     gotoxy(35,15);
-    cout<<"[-> 5. VOLVER AL MENU PRINCIPAL            |"<<endl;
-    gotoxy(35,16);
-    cout<<"                                           |"<<endl;
-    gotoxy(35,17);
     cout<<"[-> 0. VOLVER AL MENU PRINCIPAL            |"<<endl;
-    gotoxy(35,18);
+    gotoxy(35,16);
     cout<<"--------------------------------------------"<<endl;
 }
 

@@ -21,7 +21,7 @@ while(v.leerDiscoVenta(pos++)){
 
     if(id==v.getIDVenta()){
 
-        v.listarventa();
+        v.MostarVenta();
 
     }
 
@@ -30,27 +30,6 @@ while(v.leerDiscoVenta(pos++)){
 
 }
 
-
-
-//VALIDACION DE VENTA
-int ValidarVenta(int v)
-{
-    Venta a;
-    int pos=0;
-
-    while(a.leerDiscoVenta(pos++))
-    {
-
-        if(a.getIDVenta()==v)
-        {
-            return -1;
-        }
-
-    }
-    return 0;
-
-
-}
 
 
 //FUNCION ID VENTA ALFANUMERICO
@@ -152,14 +131,6 @@ Cliente C;
 
         idVenta = BuscarIDventa();
 
-        ///VALIDACION DE VENTA
-
-        if (ValidarVenta(idVenta)==-1)
-        {
-            cout<<"ID VENTA REPETIDO";
-            return false;
-        }
-
 
         cout<<"CARGE LOS DATOS DE LA VENTA: "<<endl;
 
@@ -220,13 +191,15 @@ Cliente C;
         }
 
         cout<<"CARGE LOS DATOS DEL CLIENTE: "<<endl;
-        C.altaCliente(idVenta);
+        if(C.altaCliente(idVenta)==false){
+
+        return false;
+
+        }
         system("cls");
-
-
-
         activo=true;
         return true;
+
 
     }
 

@@ -10,30 +10,12 @@ public:
    fecha(){int dia=mes=anio=0;}
     int  cargarFecha();
     int Validacion(int,int,int);
-    int getdia()
-    {
-        return dia;
-    }
-    int getmes()
-    {
-        return mes;
-    }
-    int getanio()
-    {
-        return anio;
-    }
-    void setdia(int d)
-    {
-        dia=d;
-    }
-    void setmes(int m)
-    {
-        mes=m;
-    }
-    void setanio(int a)
-    {
-        anio=a;
-    }
+    int getdia(){return dia;}
+    int getmes(){return mes;}
+    int getanio(){return anio;}
+    void setdia(int d){dia=d;}
+    void setmes(int m){mes=m;}
+    void setanio(int a){anio=a;}
 };
 
 int Fecha::cargarFecha()
@@ -115,6 +97,7 @@ private:
     char NombreMarca[15];
     int activo;
 public:
+    Producto(){stock=0;}
     producto(){activo=0;}
     void CargarProducto();
     const char *getCodigoProducto(){return codigoProducto;}
@@ -128,9 +111,9 @@ public:
     void setPrecio(float f){precio=f;}
     void setStock(int h){stock=h;}
     void setMarca(const char *marcax){strcpy(NombreMarca,marcax);}
-    bool nuevoproducto();
+    bool nuevoproducto(const char *);
     bool grabarproducto();
-    bool altaproducto();
+    bool altaproducto(const char *);
     bool leerdedisco(int);
     void mostrarproducto();
     void eliminarproducto();
@@ -143,17 +126,7 @@ public:
 
 };
 
-class Categoria
-{
-private:
-    int codigoCategoriaProducto;
-    char nombreCategoriaProducto[40];
-public:
-    int getCodigoCate();
-    const char *getNombreCat();
-    void setCodigoCate(int);
-    void setNombreCate(const char *);
-};
+
 class Proveedor
 {
 private:
@@ -175,7 +148,6 @@ public:
     bool CargarProveedor();
     void MostrarProveedor();
     int getNumeroProveedor(){return numeroProveedor;}
-
     void setNumeroProveedor(int );
     bool grabarProveedor();
     bool leerProveedor(int );
@@ -206,6 +178,7 @@ private:
     bool activo;
 
 public:
+    Cliente (){activo=false;}
     bool getActivo();
     void setActivo(bool a){activo=a;}
     bool CargarCliente(int);
@@ -339,7 +312,7 @@ public:
     bool listarCompra();
     bool grabarCompra();
     void bajaCompra();
-    bool ValidacionCodproducto(const char *);
+    int ValidacionCodproducto(const char *);
     //// Getters/Setters
     void setcodProductoCompra(const char * auxCodProductoCompra){strcpy(codProducto,auxCodProductoCompra);}
     void setnumProveedorCompra(int auxNumProveedorCompra){numProveedor=auxNumProveedorCompra;}

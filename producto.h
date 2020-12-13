@@ -139,8 +139,6 @@ bool Producto::validarproducto(const char *codigo){
 
     while(P.leerdedisco(pos++)){
 
-
-
         if(strcmp(P.getCodigoProducto(),codigo)==0){
             return 0;
         }
@@ -149,11 +147,10 @@ bool Producto::validarproducto(const char *codigo){
 }
 
 
-bool Producto::nuevoproducto()
+bool Producto::nuevoproducto(const char *codigoproductoaux)
 {
     textcolor(cNEGRO,cVERDE);
-    cout<<"CÓDIGO DE PRODUCTO:";
-    cin>>codigoProducto;
+strcpy(codigoProducto,codigoproductoaux);
 ///validacion
     if(validarproducto(codigoProducto)==0){
     cout<<"codigo repetido"<<endl;
@@ -208,12 +205,12 @@ bool Producto::grabarproducto()
 }
 
 
-bool Producto::altaproducto()
+bool Producto::altaproducto(const char *codigoproductoaux)
 {
     textcolor(cNEGRO,cVERDE);
     Producto a;
 
-    if(a.nuevoproducto()==true)
+    if(a.nuevoproducto(codigoproductoaux)==true)
     {
 
         if(a.grabarproducto()==true)
@@ -369,7 +366,7 @@ fclose(PR);
 return;
 
 }
-///BUSQUEDAS
+
 
 
 

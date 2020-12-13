@@ -131,12 +131,14 @@ bool Cliente::altaCliente(int idventa)
     {
         if(a.grabarCliente()==true){
             cout <<"CLIENTE AGREGADO"<<endl;
+            return true;
         }
     }
 
     else
     {
         cout<<"NO SE PUDO AGREGAR CLIENTE."<<endl;
+        return false;
     }
 }
 bool Cliente::leerDiscoCliente(int posicion)
